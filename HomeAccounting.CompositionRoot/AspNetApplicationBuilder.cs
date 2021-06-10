@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using HomeAccounting.BusinessLogic;
+using HomeAccounting.BusinessLogic.Contracts;
+using HomeAccounting.DataSource;
+using HomeAccounting.DataSource.Contracts;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace HomeAccounting.CompositionRoot
 {
@@ -10,17 +14,16 @@ namespace HomeAccounting.CompositionRoot
 
         protected override void RegisterBusinessLogic()
         {
-            throw new System.NotImplementedException();
+            _services.AddTransient<IAccounting, AccountingService>();
         }
 
         protected override void RegisterDataSources()
         {
-            throw new System.NotImplementedException();
+            _services.AddTransient<IRepository, PostgreRepository>();
         }
 
         protected override void RegisterInfrastructure()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
