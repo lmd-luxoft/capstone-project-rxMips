@@ -42,5 +42,12 @@ namespace HomeAccounting.UI.Controllers
             _accounting.Create(new Account(){Title = "Test", CreationTime = DateTime.Now});
             return Json(new {Status = true});
         }
+        
+        [HttpGet]
+        public ActionResult Get(int id)
+        {
+            var account = _accounting.GetById(id);
+            return Json(account);
+        }
     }
 }

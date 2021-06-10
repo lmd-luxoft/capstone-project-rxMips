@@ -21,7 +21,8 @@ namespace HomeAccounting.BusinessLogic
 
         public Account GetById(int id)
         {
-            throw new System.NotImplementedException();
+            var dto = _repository.GetById(id);
+            return Map(dto);
         }
 
         public void Save(Account account)
@@ -38,6 +39,16 @@ namespace HomeAccounting.BusinessLogic
                 CreationTime = account.CreationTime
             };
             return dto;
+        }
+        
+        private static Account Map(DbAccount dto)
+        {
+            return new Account
+            {
+                Id = dto.Id, 
+                Title = dto.Title,
+                CreationTime = dto.CreationTime
+            };
         }
     }
 }

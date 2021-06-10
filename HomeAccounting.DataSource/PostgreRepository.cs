@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using System.Linq;
+using Dapper;
 using HomeAccounting.DataSource.Contracts;
 using Npgsql;
 
@@ -15,9 +16,11 @@ namespace HomeAccounting.DataSource
             connection.Execute(cmd, dbAccount);
         }
 
-        public void GetById(int id)
+        public DbAccount GetById(int id)
         {
-            throw new System.NotImplementedException();
+            using var connection = new NpgsqlConnection(ConnectionString);
+            var query = "select id as \"Id\", creation_time as \"CreationTime\", title as \"Title\" from public.accounts where id = @id";
+            return connection.Query<DbAccount>(query, id).Single();
         }
     }
 }
