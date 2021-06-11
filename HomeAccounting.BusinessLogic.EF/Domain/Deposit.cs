@@ -4,34 +4,26 @@
     {
         public string AccountNumber
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public decimal Persent
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public PersentType PersentType
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public Bank Bank
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }

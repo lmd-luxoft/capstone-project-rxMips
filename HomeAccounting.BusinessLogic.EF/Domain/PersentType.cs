@@ -2,5 +2,7 @@
 {
     public enum PersentType
     {
+        Variant1,
+        Variant2
     }
 }

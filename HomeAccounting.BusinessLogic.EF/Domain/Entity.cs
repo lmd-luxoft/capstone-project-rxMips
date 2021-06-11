@@ -4,10 +4,8 @@
     {
         public int Id
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }

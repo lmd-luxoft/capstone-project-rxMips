@@ -2,6 +2,7 @@
 using HomeAccounting.BusinessLogic.Contracts;
 using HomeAccounting.DataSource;
 using HomeAccounting.DataSource.Contracts;
+using HomeAccounting.DataSource.EF.Application;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace HomeAccounting.CompositionRoot
@@ -20,6 +21,7 @@ namespace HomeAccounting.CompositionRoot
         protected override void RegisterDataSources()
         {
             _services.AddTransient<IRepository, PostgreRepository>();
+            _services.AddDbContext<DomainContext>();
         }
 
         protected override void RegisterInfrastructure()

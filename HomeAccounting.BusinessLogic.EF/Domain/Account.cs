@@ -4,26 +4,20 @@
     {
         public System.DateTime CreationDate
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public string Title
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public decimal Balance
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }

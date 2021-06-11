@@ -4,18 +4,14 @@
     {
         public int Banknots
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public int Monets
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }

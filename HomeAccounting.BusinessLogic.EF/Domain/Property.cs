@@ -6,34 +6,26 @@ namespace HomeAccounting.DataSource.EF.Domain
     {
         public decimal BasePrice
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public string Location
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
-        public IEnumerable<PropertyPriceChange> PropertyChange
+        public IEnumerable<PropertyPriceChange> PropertyPriceChanges
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public PropertyType PropertyType
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }

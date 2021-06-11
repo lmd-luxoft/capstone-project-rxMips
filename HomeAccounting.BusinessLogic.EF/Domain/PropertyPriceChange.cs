@@ -2,22 +2,18 @@
 
 namespace HomeAccounting.DataSource.EF.Domain
 {
-    public class PropertyPriceChange
+    public class PropertyPriceChange: Entity
     {
         public DateTime RegistrationDate
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public decimal Delta
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }

@@ -2,20 +2,18 @@
 {
     public class Bank
     {
+        public int Id { get; set; }
+        
         public string BIC
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public int Title
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }

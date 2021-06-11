@@ -2,30 +2,24 @@
 
 namespace HomeAccounting.DataSource.EF.Domain
 {
-    public class Operation
+    public class Operation: Entity
     {
         public int ExecutionDate
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public int Amount
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
-        public IEnumerable<Account> Account
+        public IEnumerable<Account> Accounts
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
     }
 }
