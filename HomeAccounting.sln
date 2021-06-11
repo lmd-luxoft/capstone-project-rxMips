@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAccounting.DataSource.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAccounting.CompositionRoot", "HomeAccounting.CompositionRoot\HomeAccounting.CompositionRoot.csproj", "{9ABB8294-B928-42E5-929A-9B8CD6E4C0CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAccounting.DataSource.EF", "HomeAccounting.DataSource.EF\HomeAccounting.DataSource.EF.csproj", "{2CCE5C93-782C-46B8-B2E8-92B7DDC03E7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAccounting.BusinessLogic.EF", "HomeAccounting.BusinessLogic.EF\HomeAccounting.BusinessLogic.EF.csproj", "{2CCE5C93-782C-46B8-B2E8-92B7DDC03E7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
