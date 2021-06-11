@@ -2,7 +2,7 @@
 
 namespace HomeAccounting.DataSource.EF.Domain
 {
-    public class PropertyChange
+    public class PropertyPriceChange
     {
         public DateTime RegistrationDate
         {

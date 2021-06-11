@@ -20,7 +20,7 @@ namespace HomeAccounting.DataSource.EF.Domain
             }
         }
 
-        public IEnumerable<PropertyChange> PropertyChange
+        public IEnumerable<PropertyPriceChange> PropertyChange
         {
             get => default;
             set
