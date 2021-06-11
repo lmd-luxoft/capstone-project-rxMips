@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace HomeAccounting.Console
+﻿namespace HomeAccounting.Console
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             System.Console.WriteLine("Hello World!");
         }

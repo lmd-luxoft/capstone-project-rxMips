@@ -32,10 +32,6 @@ namespace HomeAccounting.DataSource.EF.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<int?>("OperationId")
                         .HasColumnType("integer");
 
@@ -47,8 +43,6 @@ namespace HomeAccounting.DataSource.EF.Migrations
                     b.HasIndex("OperationId");
 
                     b.ToTable("Accounts");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Account");
                 });
 
             modelBuilder.Entity("HomeAccounting.DataSource.EF.Domain.Bank", b =>
@@ -120,7 +114,7 @@ namespace HomeAccounting.DataSource.EF.Migrations
                     b.Property<int>("Monets")
                         .HasColumnType("integer");
 
-                    b.HasDiscriminator().HasValue("Cash");
+                    b.ToTable("Cashes");
                 });
 
             modelBuilder.Entity("HomeAccounting.DataSource.EF.Domain.Deposit", b =>
@@ -141,7 +135,7 @@ namespace HomeAccounting.DataSource.EF.Migrations
 
                     b.HasIndex("BankId");
 
-                    b.HasDiscriminator().HasValue("Deposit");
+                    b.ToTable("Deposits");
                 });
 
             modelBuilder.Entity("HomeAccounting.DataSource.EF.Domain.Property", b =>
@@ -157,7 +151,7 @@ namespace HomeAccounting.DataSource.EF.Migrations
                     b.Property<int>("PropertyType")
                         .HasColumnType("integer");
 
-                    b.HasDiscriminator().HasValue("Property");
+                    b.ToTable("Properties");
                 });
 
             modelBuilder.Entity("HomeAccounting.DataSource.EF.Domain.Account", b =>
@@ -174,13 +168,37 @@ namespace HomeAccounting.DataSource.EF.Migrations
                         .HasForeignKey("PropertyId");
                 });
 
+            modelBuilder.Entity("HomeAccounting.DataSource.EF.Domain.Cash", b =>
+                {
+                    b.HasOne("HomeAccounting.DataSource.EF.Domain.Account", null)
+                        .WithOne()
+                        .HasForeignKey("HomeAccounting.DataSource.EF.Domain.Cash", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("HomeAccounting.DataSource.EF.Domain.Deposit", b =>
                 {
                     b.HasOne("HomeAccounting.DataSource.EF.Domain.Bank", "Bank")
                         .WithMany()
                         .HasForeignKey("BankId");
 
+                    b.HasOne("HomeAccounting.DataSource.EF.Domain.Account", null)
+                        .WithOne()
+                        .HasForeignKey("HomeAccounting.DataSource.EF.Domain.Deposit", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Bank");
+                });
+
+            modelBuilder.Entity("HomeAccounting.DataSource.EF.Domain.Property", b =>
+                {
+                    b.HasOne("HomeAccounting.DataSource.EF.Domain.Account", null)
+                        .WithOne()
+                        .HasForeignKey("HomeAccounting.DataSource.EF.Domain.Property", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HomeAccounting.DataSource.EF.Domain.Operation", b =>

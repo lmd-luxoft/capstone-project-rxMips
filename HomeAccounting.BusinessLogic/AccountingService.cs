@@ -1,5 +1,6 @@
 ﻿using System;
 using HomeAccounting.BusinessLogic.Contracts;
+using HomeAccounting.BusinessLogic.Contracts.Dto;
 using HomeAccounting.DataSource.Contracts;
 
 namespace HomeAccounting.BusinessLogic
@@ -12,7 +13,7 @@ namespace HomeAccounting.BusinessLogic
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
-        
+
         public void Create(Account account)
         {
             var dto = Map(account);
@@ -27,9 +28,9 @@ namespace HomeAccounting.BusinessLogic
 
         public void Save(Account account)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
-        
+
         private static DbAccount Map(Account account)
         {
             var dto = new DbAccount
@@ -40,12 +41,12 @@ namespace HomeAccounting.BusinessLogic
             };
             return dto;
         }
-        
+
         private static Account Map(DbAccount dto)
         {
             return new Account
             {
-                Id = dto.Id, 
+                Id = dto.Id,
                 Title = dto.Title,
                 CreationTime = dto.CreationTime
             };

@@ -1,5 +1,3 @@
-using System;
-
 namespace HomeAccounting.UI.Models
 {
     public class ErrorViewModel

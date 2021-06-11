@@ -1,23 +1,13 @@
-﻿namespace HomeAccounting.DataSource.EF.Domain
+﻿using System;
+
+namespace HomeAccounting.DataSource.EF.Domain
 {
     public class Account : Entity
     {
-        public System.DateTime CreationDate
-        {
-            get;
-            set;
-        }
+        public DateTime CreationDate { get; set; }
 
-        public string Title
-        {
-            get;
-            set;
-        }
+        public string Title { get; set; }
 
-        public decimal Balance
-        {
-            get;
-            set;
-        }
+        public decimal Balance { get; set; }
     }
 }

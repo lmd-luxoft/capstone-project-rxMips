@@ -10,7 +10,7 @@ namespace HomeAccounting.CompositionRoot
         {
             _services = services;
         }
-        
+
         protected abstract void RegisterBusinessLogic();
         protected abstract void RegisterDataSources();
         protected abstract void RegisterInfrastructure();

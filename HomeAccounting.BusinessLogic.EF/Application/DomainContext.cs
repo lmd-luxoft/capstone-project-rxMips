@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using HomeAccounting.DataSource.EF.Domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,11 +12,11 @@ namespace HomeAccounting.DataSource.EF.Application
         // {
         //     //Database.EnsureDeleted();
         // }
-        
+
         public DomainContext(DbContextOptions<DomainContext> options) : base(options)
         {
         }
-        
+
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Bank> Banks { get; set; }
         public DbSet<Cash> Cashes { get; set; }
@@ -30,20 +28,21 @@ namespace HomeAccounting.DataSource.EF.Application
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseNpgsql(ConnectionString);
+            optionsBuilder
+                .UseNpgsql(ConnectionString)
+                .LogTo(Console.WriteLine);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Account>();
+            modelBuilder.Entity<Account>().ToTable("Accounts");
             modelBuilder.Entity<Bank>();
-            modelBuilder.Entity<Cash>();
+            modelBuilder.Entity<Cash>().ToTable("Cashes");
             var operations = modelBuilder.Entity<Operation>();
-            operations.HasMany<Account>(x => x.Accounts);
-            modelBuilder.Entity<Property>();
+            operations.HasMany(x => x.Accounts);
+            modelBuilder.Entity<Property>().ToTable("Properties");
             modelBuilder.Entity<PropertyPriceChange>();
-            modelBuilder.Entity<Deposit>();
-
+            modelBuilder.Entity<Deposit>().ToTable("Deposits");
         }
     }
 }
